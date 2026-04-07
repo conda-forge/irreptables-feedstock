@@ -1,5 +1,5 @@
 {% set name = "irreptables" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/irreptables-{{ version }}.tar.gz
-  sha256: 6b5ac9f6aa6d1f7f9eddeae1f851a145ae8f3ac50ea9ea369bf5372169654a61
+  sha256: adcf3cc1bf78419ca23319b112343e1dbf41e1bdb7cccc8673159c8cf4c60773
 
 build:
   noarch: python
