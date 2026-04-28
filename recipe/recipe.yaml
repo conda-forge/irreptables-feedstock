@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: irreptables
+  version: "3.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/irreptables-${{ version }}.tar.gz
+  sha256: adcf3cc1bf78419ca23319b112343e1dbf41e1bdb7cccc8673159c8cf4c60773
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - scipy >=1.0
+    - spglib >=1.14
+    - lazy-property
+    - click
+
+tests:
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: Tables of characters of irreducible representations for double space groups. Part of 'irrep' package
+  license: GPL-3.0-or-later
+  license_file: LICENSE
+  homepage: https://github.com/stepan-tsirkin/irrep
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
